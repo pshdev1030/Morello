@@ -3,20 +3,23 @@ import MyPageModal from 'Component/MyPageModal/MyPageModal';
 import React, { FC, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MenubarWrapper } from './MenubarStyle';
+import gravatar from 'gravatar';
+// import { useSelector } from 'react-redux';
+// import { RootState } from 'reducer';
 
 const Menubar: FC = ({ children }) => {
+  // const user = useSelector<RootState>((state) => state.user.user);
   const [openMenuModal, setOpenMenuModal] = useState<boolean>(false);
   const [openMyPageModal, setOpenMyPageModal] = useState<boolean>(false);
 
   const onOpenMenuModal = useCallback(() => {
-    console.log('hi');
     setOpenMenuModal(true);
   }, [setOpenMenuModal]);
 
   const onOpenMyPageModal = useCallback(() => {
-    console.log('hi');
     setOpenMyPageModal(true);
   }, [setOpenMyPageModal]);
+
   const onCloseModal = useCallback(() => {
     setOpenMenuModal(false);
     setOpenMyPageModal(false);
@@ -58,7 +61,9 @@ const Menubar: FC = ({ children }) => {
             <span>bell</span>
           </div>
           <div>
-            <span onClick={onOpenMyPageModal}>name</span>
+            <span onClick={onOpenMyPageModal}>
+              <img src={gravatar.url(`asdf`, { s: '30px', d: 'retro' })} alt="userinfo" />
+            </span>
           </div>
         </div>
       </MenubarWrapper>

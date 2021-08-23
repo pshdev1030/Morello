@@ -23,12 +23,17 @@ export const LogInWrapper = styled.div`
     font-size: 30px;
     margin-bottom: 20px;
   }
-  & > div > div {
+  & > div > form > div {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #adadad;
     margin: 30px;
     padding: 10px 10 px;
+  }
+  & > div > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   & input {

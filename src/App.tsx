@@ -8,21 +8,21 @@ import NotFound from 'Pages/NotFound';
 import ErrorPage from 'Pages/Error';
 import Login from 'Pages/LogIn';
 
-function App() {
+const App = () => {
   return (
     <>
       <Global styles={GlobalStyles} />
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/main" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/boards" component={Board} />
           <Route exact path="/Error" component={ErrorPage} />
+          <Route exact path="/Login" component={Login} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
