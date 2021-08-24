@@ -12,7 +12,7 @@ type formValues = {
 };
 
 const Login = () => {
-  const user = useSelector<RootState>((state) => state.user.user);
+  const isLoggedIn = useSelector<RootState>((state) => state.user.logInSuccess);
   const dispatch = useDispatch();
   const history = useHistory();
   const { register, handleSubmit, reset } = useForm();
@@ -25,7 +25,7 @@ const Login = () => {
     history.push('/');
     reset();
   };
-  if (user) {
+  if (isLoggedIn) {
     <Redirect to="/" />;
   }
   return (

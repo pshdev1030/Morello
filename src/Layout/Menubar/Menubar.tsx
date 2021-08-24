@@ -4,11 +4,11 @@ import React, { FC, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MenubarWrapper } from './MenubarStyle';
 import gravatar from 'gravatar';
-// import { useSelector } from 'react-redux';
-// import { RootState } from 'reducer';
+import { useSelector } from 'react-redux';
+import { RootState } from 'reducer';
 
 const Menubar: FC = ({ children }) => {
-  // const user = useSelector<RootState>((state) => state.user.user);
+  const user = useSelector((state: RootState) => state.user.user);
   const [openMenuModal, setOpenMenuModal] = useState<boolean>(false);
   const [openMyPageModal, setOpenMyPageModal] = useState<boolean>(false);
 
@@ -62,7 +62,7 @@ const Menubar: FC = ({ children }) => {
           </div>
           <div>
             <span onClick={onOpenMyPageModal}>
-              <img src={gravatar.url(`asdf`, { s: '30px', d: 'retro' })} alt="userinfo" />
+              <img src={gravatar.url(`${user ? user.email : 'asdf'}`, { s: '30px', d: 'retro' })} alt="userinfo" />
             </span>
           </div>
         </div>
